@@ -7,6 +7,7 @@ properties() { '
 kernel.string=ExampleKernel by osm0sis @ xda-developers
 do.devicecheck=1
 do.modules=0
+do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
 device.name1=maguro
@@ -15,6 +16,7 @@ device.name3=toroplus
 device.name4=tuna
 device.name5=
 supported.versions=
+supported.patchlevels=
 '; } # end properties
 
 # shell variables
@@ -30,8 +32,8 @@ ramdisk_compression=auto;
 
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
-chmod -R 750 $ramdisk/*;
-chown -R root:root $ramdisk/*;
+set_perm_recursive 0 0 755 644 $ramdisk/*;
+set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 
 
 ## AnyKernel install
